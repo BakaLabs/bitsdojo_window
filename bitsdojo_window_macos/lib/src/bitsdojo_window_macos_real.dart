@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, avoid_print
+
 library bitsdojo_window_macos;
 
 import 'package:bitsdojo_window_platform_interface/bitsdojo_window_platform_interface.dart';

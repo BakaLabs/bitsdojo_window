@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 library bitsdojo_window_macos;
 
 import './window.dart';

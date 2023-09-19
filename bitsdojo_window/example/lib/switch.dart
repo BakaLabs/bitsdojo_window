@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, sort_child_properties_last
+
 /*
 Don't forget to add these 2 lines at the beggining of windows\runner\main.cpp
 
@@ -174,7 +176,7 @@ class LeftSide extends StatelessWidget {
         width: 200,
         child: Container(
             color: colors.sidebar,
-            child: Column(
+            child: const Column(
               children: [WindowTitleBarBox(child: MoveWindow())],
             )));
   }
@@ -214,9 +216,9 @@ class RightSideTopArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WindowTitleBarBox(
+    return const WindowTitleBarBox(
         child: Row(
-            children: [Expanded(child: MoveWindow()), const WindowButtons()]));
+            children: [Expanded(child: MoveWindow()), WindowButtons()]));
   }
 }
 
@@ -272,7 +274,7 @@ class RoundedFlatButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
               side: const BorderSide(color: Colors.white)),
-          primary: color ?? Colors.grey[900],
+              backgroundColor: color ?? Colors.grey[900],
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           textStyle: TextStyle(
               color: textColor ?? Colors.white,

@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 /// Close
 class CloseIcon extends StatelessWidget {
   final Color color;
-  CloseIcon({Key? key, required this.color}) : super(key: key);
+  const CloseIcon({Key? key, required this.color}) : super(key: key);
   @override
   Widget build(BuildContext context) => Align(
         alignment: Alignment.topLeft,
@@ -28,7 +28,7 @@ class CloseIcon extends StatelessWidget {
 /// Maximize
 class MaximizeIcon extends StatelessWidget {
   final Color color;
-  MaximizeIcon({Key? key, required this.color}) : super(key: key);
+  const MaximizeIcon({Key? key, required this.color}) : super(key: key);
   @override
   Widget build(BuildContext context) => _AlignedPaint(_MaximizePainter(color));
 }
@@ -45,7 +45,7 @@ class _MaximizePainter extends _IconPainter {
 /// Restore
 class RestoreIcon extends StatelessWidget {
   final Color color;
-  RestoreIcon({
+  const RestoreIcon({
     Key? key,
     required this.color,
   }) : super(key: key);
@@ -59,8 +59,8 @@ class _RestorePainter extends _IconPainter {
   void paint(Canvas canvas, Size size) {
     Paint p = getPaint(color);
     canvas.drawRect(Rect.fromLTRB(0, 2, size.width - 2, size.height), p);
-    canvas.drawLine(Offset(2, 2), Offset(2, 0), p);
-    canvas.drawLine(Offset(2, 0), Offset(size.width, 0), p);
+    canvas.drawLine(const Offset(2, 2), const Offset(2, 0), p);
+    canvas.drawLine(const Offset(2, 0), Offset(size.width, 0), p);
     canvas.drawLine(
         Offset(size.width, 0), Offset(size.width, size.height - 2), p);
     canvas.drawLine(Offset(size.width, size.height - 2),
@@ -71,7 +71,7 @@ class _RestorePainter extends _IconPainter {
 /// Minimize
 class MinimizeIcon extends StatelessWidget {
   final Color color;
-  MinimizeIcon({Key? key, required this.color}) : super(key: key);
+  const MinimizeIcon({Key? key, required this.color}) : super(key: key);
   @override
   Widget build(BuildContext context) => _AlignedPaint(_MinimizePainter(color));
 }
@@ -103,7 +103,7 @@ class _AlignedPaint extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
         alignment: Alignment.center,
-        child: CustomPaint(size: Size(10, 10), painter: painter));
+        child: CustomPaint(size: const Size(10, 10), painter: painter));
   }
 }
 

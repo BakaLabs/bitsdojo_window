@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 library bitsdojo_window_windows;
 
 import './native_api.dart';

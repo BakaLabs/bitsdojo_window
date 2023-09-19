@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, avoid_single_cascade_in_expression_statements
+
 import 'package:bitsdojo_window_windows/bitsdojo_window_windows.dart'
     show WinDesktopWindow;
 import 'package:flutter/foundation.dart';
@@ -9,7 +11,7 @@ class WindowBorder extends StatelessWidget {
   final Color color;
   final double? width;
 
-  WindowBorder({Key? key, required this.child, required this.color, this.width})
+  const WindowBorder({Key? key, required this.child, required this.color, this.width})
       : super(key: key);
 
   @override
@@ -34,16 +36,16 @@ class WindowBorder extends StatelessWidget {
     if (isWindowsApp) {
       topBorderWidth += 1 / appWindow.scaleFactor;
     }
-    final topBorderSide = BorderSide(color: this.color, width: topBorderWidth);
-    final borderSide = BorderSide(color: this.color, width: borderWidth);
+    final topBorderSide = BorderSide(color: color, width: topBorderWidth);
+    final borderSide = BorderSide(color: color, width: borderWidth);
 
     return Container(
-        child: child,
         decoration: BoxDecoration(
             border: Border(
                 top: topBorderSide,
                 left: borderSide,
                 right: borderSide,
-                bottom: borderSide)));
+                bottom: borderSide)),
+        child: child);
   }
 }

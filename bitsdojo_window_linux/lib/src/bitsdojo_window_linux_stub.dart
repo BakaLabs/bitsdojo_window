@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bitsdojo_window_platform_interface/bitsdojo_window_platform_interface.dart';
 import 'dart:ui';
 

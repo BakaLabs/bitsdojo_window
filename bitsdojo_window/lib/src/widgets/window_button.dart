@@ -48,11 +48,11 @@ class WindowButtonColors {
 
 final _defaultButtonColors = WindowButtonColors(
     normal: Colors.transparent,
-    iconNormal: Color(0xFF805306),
-    mouseOver: Color(0xFF404040),
-    mouseDown: Color(0xFF202020),
-    iconMouseOver: Color(0xFFFFFFFF),
-    iconMouseDown: Color(0xFFF0F0F0));
+    iconNormal: const Color(0xFF805306),
+    mouseOver: const Color(0xFF404040),
+    mouseDown: const Color(0xFF202020),
+    iconMouseOver: const Color(0xFFFFFFFF),
+    iconMouseDown: const Color(0xFFF0F0F0));
 
 class WindowButton extends StatelessWidget {
   final WindowButtonBuilder? builder;
@@ -105,8 +105,8 @@ class WindowButton extends StatelessWidget {
             backgroundColor: getBackgroundColor(mouseState),
             iconColor: getIconColor(mouseState));
 
-        var icon = (this.iconBuilder != null)
-            ? this.iconBuilder!(buttonContext)
+        var icon = (iconBuilder != null)
+            ? iconBuilder!(buttonContext)
             : Container();
         double borderSize = appWindow.borderSize;
         double defaultPadding =
@@ -123,14 +123,14 @@ class WindowButton extends StatelessWidget {
             duration: Duration(milliseconds: animationMs),
             color: buttonContext.backgroundColor ?? fadeOutColor,
             child: iconWithPadding);
-        var button = (this.builder != null)
-            ? this.builder!(buttonContext, icon)
+        var button = (builder != null)
+            ? builder!(buttonContext, icon)
             : iconWithPadding;
         return SizedBox(
             width: buttonSize.width, height: buttonSize.height, child: button);
       },
       onPressed: () {
-        if (this.onPressed != null) this.onPressed!();
+        if (onPressed != null) onPressed!();
       },
     );
   }
@@ -182,10 +182,10 @@ class RestoreWindowButton extends WindowButton {
 }
 
 final _defaultCloseButtonColors = WindowButtonColors(
-    mouseOver: Color(0xFFD32F2F),
-    mouseDown: Color(0xFFB71C1C),
-    iconNormal: Color(0xFF805306),
-    iconMouseOver: Color(0xFFFFFFFF));
+    mouseOver: const Color(0xFFD32F2F),
+    mouseDown: const Color(0xFFB71C1C),
+    iconNormal: const Color(0xFF805306),
+    iconMouseOver: const Color(0xFFFFFFFF));
 
 class CloseWindowButton extends WindowButton {
   CloseWindowButton(

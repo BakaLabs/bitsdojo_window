@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/services.dart';
 
 import 'bitsdojo_window_platform_interface.dart';

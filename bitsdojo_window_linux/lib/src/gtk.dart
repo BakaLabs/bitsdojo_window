@@ -1,4 +1,5 @@
 import 'dart:ffi';
+// ignore: depend_on_referenced_packages
 import 'package:ffi/ffi.dart';
 
 final _libgtk = DynamicLibrary.open('libgtk-3.so.0');

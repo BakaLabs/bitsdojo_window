@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:ui';
 
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -23,7 +25,7 @@ abstract class BitsdojoWindowPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static BitsdojoWindowPlatform _channelInstance =
+  static final BitsdojoWindowPlatform _channelInstance =
       MethodChannelBitsdojoWindow();
   static BitsdojoWindowPlatform _instance = _channelInstance;
 

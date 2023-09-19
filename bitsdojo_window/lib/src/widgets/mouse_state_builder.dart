@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/widgets.dart';
 
 typedef MouseStateBuilderCB = Widget Function(
@@ -9,7 +11,7 @@ class MouseState {
   MouseState();
   @override
   String toString() {
-    return "isMouseDown: ${this.isMouseDown} - isMouseOver: ${this.isMouseOver}";
+    return "isMouseDown: $isMouseDown - isMouseOver: $isMouseOver";
   }
 }
 
@@ -18,7 +20,7 @@ T? _ambiguate<T>(T? value) => value;
 class MouseStateBuilder extends StatefulWidget {
   final MouseStateBuilderCB builder;
   final VoidCallback? onPressed;
-  MouseStateBuilder({Key? key, required this.builder, this.onPressed})
+  const MouseStateBuilder({Key? key, required this.builder, this.onPressed})
       : super(key: key);
   @override
   _MouseStateBuilderState createState() => _MouseStateBuilderState();

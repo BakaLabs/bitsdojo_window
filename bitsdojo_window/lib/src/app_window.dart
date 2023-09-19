@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:bitsdojo_window_platform_interface/bitsdojo_window_platform_interface.dart';
 import 'package:bitsdojo_window_platform_interface/method_channel_bitsdojo_window.dart';
 import 'package:bitsdojo_window_windows/bitsdojo_window_windows.dart';

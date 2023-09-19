@@ -1,7 +1,9 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 
-class BDWRect extends Struct {
+sealed class BDWRect extends Struct {
   @Double()
   external double left, top, right, bottom;
 }
@@ -16,7 +18,7 @@ Pointer<BDWRect> newBDWRect() {
   return result;
 }
 
-class BDWScreenInfo extends Struct {
+sealed class BDWScreenInfo extends Struct {
   external Pointer<BDWRect> workingRect;
   external Pointer<BDWRect> fullRect;
 }
@@ -31,13 +33,13 @@ Pointer<BDWScreenInfo> newBDWScreenInfo() {
 
 extension FreeBDWScreenInfo on Pointer<BDWScreenInfo> {
   void free() {
-    calloc.free(this.ref.workingRect);
-    calloc.free(this.ref.fullRect);
+    calloc.free(ref.workingRect);
+    calloc.free(ref.fullRect);
     calloc.free(this);
   }
 }
 
-class BDWOffset extends Struct {
+sealed class BDWOffset extends Struct {
   @Double()
   external double x, y;
 }
