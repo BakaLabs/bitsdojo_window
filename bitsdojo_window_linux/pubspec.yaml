@@ -12,7 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   bitsdojo_window_platform_interface:
-    path: ../bitsdojo_window_platform_interface
+    git:
+      url: https://github.com/BakaLabs/bitsdojo_window
+      path: bitsdojo_window_platform_interface
+      ref: master
   ffi: ^2.0.0
 
 dev_dependencies:
