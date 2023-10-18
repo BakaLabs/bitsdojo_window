@@ -167,8 +167,14 @@ namespace bitsdojo_window {
         DwmExtendFrameIntoClientArea(hwnd, &margins);
     }
 
+    double getScaleFactor(HWND window) {
+        UINT dpi = GetDpiForWindow(window);
+        return dpi / 96.0;
+    }
+
     LRESULT handle_nchittest(HWND window, WPARAM wparam, LPARAM lparam)
     {
+        double scaleFactor = getScaleFactor(window);
         bool isMaximized = IsZoomed(flutter_window);
         if (isMaximized)
             return HTCLIENT;
@@ -179,33 +185,33 @@ namespace bitsdojo_window {
         int resizeMargin = getResizeMargin(window);
         if (pt.y < resizeMargin)
         {
-            if (pt.x < resizeMargin)
+            if (pt.x < resizeMargin - (int)ceil(scaleFactor * 5))
             {
                 return HTTOPLEFT;
             }
-            if (pt.x > (rc.right - resizeMargin))
+            if (pt.x > (rc.right - resizeMargin + (int)ceil(scaleFactor * 5)))
             {
                 return HTTOPRIGHT;
             }
             return HTTOP;
         }
-        if (pt.y > (rc.bottom - resizeMargin))
+        if (pt.y > (rc.bottom - resizeMargin + (int)ceil(scaleFactor * 7)))
         {
-            if (pt.x < resizeMargin)
+            if (pt.x < resizeMargin - (int)ceil(scaleFactor * 5))
             {
                 return HTBOTTOMLEFT;
             }
-            if (pt.x > (rc.right - resizeMargin))
+            if (pt.x > (rc.right - resizeMargin + (int)ceil(scaleFactor * 5)))
             {
                 return HTBOTTOMRIGHT;
             }
             return HTBOTTOM;
         }
-        if (pt.x < resizeMargin)
+        if (pt.x < resizeMargin - (int)ceil(scaleFactor * 5))
         {
             return HTLEFT;
         }
-        if (pt.x > (rc.right - resizeMargin))
+        if (pt.x > (rc.right - resizeMargin + (int)ceil(scaleFactor * 5)))
         {
             return HTRIGHT;
         }
@@ -309,7 +315,10 @@ namespace bitsdojo_window {
         }
         else 
         {
-            params->rgrc[0].top -= 1;
+            params->rgrc[0].top -= (int)ceil(scaleFactor * 1);
+            params->rgrc[0].bottom -= (int)ceil(scaleFactor * 6);
+            params->rgrc[0].left += (int)ceil(scaleFactor * 4);
+            params->rgrc[0].right -= (int)ceil(scaleFactor * 4);
         }
 
         return 0;
