@@ -273,11 +273,6 @@ namespace bitsdojo_window {
         }        
     }
 
-    double getScaleFactor(HWND window) {
-        UINT dpi = GetDpiForWindow(window);
-        return dpi / 96.0;
-    }
-
     LRESULT handle_nccalcsize(HWND window, WPARAM wparam, LPARAM lparam)
     {
         if (!wparam)
