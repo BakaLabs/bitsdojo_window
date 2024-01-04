@@ -30,7 +30,7 @@ dependencies:
     git:
       url: https://github.com/BakaLabs/bitsdojo_window
       path: bitsdojo_window_windows
-      ref: master
+      ref: 67d8367b01f43f19b49d0d05fc5cf260d0e75850
   bitsdojo_window_macos:
     git:
       url: https://github.com/BakaLabs/bitsdojo_window
